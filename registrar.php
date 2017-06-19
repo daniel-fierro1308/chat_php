@@ -24,6 +24,7 @@
 					}
 					 else if($_POST['password'] != $_POST['repe_password']){
 							echo"<div class='container'><div class='alert alert-danger'>Las contraseñas no coinciden</div></div>";
+							return false;
 						}
 					
 					 else{

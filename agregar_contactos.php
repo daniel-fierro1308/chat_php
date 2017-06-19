@@ -62,7 +62,8 @@ session_start();
 						$solicitudes=consulta($con,$sql,$error);	
 						$numSolicitudes= mysqli_num_rows($solicitudes);
 						 if($id == $_SESSION['id']){
-							echo"<div class='alert alert-info'>No puedes agregarte a ti mismo..</div>";
+							header('location:perfil.php');
+							//echo"<div class='alert alert-info'>No puedes agregarte a ti mismo..</div>";
 						} else{
 							$sql="insert into solicitudes (usuario,solicitud) values ($_SESSION[id],$id)";
 							$error="<div class='alert alert-danger'>Error al buscar usuarios</div>";

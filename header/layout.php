@@ -30,7 +30,7 @@
 if (isset($_SESSION['usuario']) && isset($_SESSION['id'])) {
     echo '<ul class="navbar-nav mr-auto">
 <li class="nav-item active"><a href="contactos.php" class="nav-link"><strong>CONTACTOS</strong></a></li>
-<li class="nav-item active"><a href="#" class="nav-link"><strong>PERFIL</strong></a></li>
+<li class="nav-item active"><a href="perfil.php" class="nav-link"><strong>PERFIL</strong></a></li>
 <li class="nav-item active"><a href="cerrarSesion.php" class="nav-link"><strong>CERRAR SESION</strong></a></li></ul>
     <form action="agregar_contactos.php" method="post" name="buscar" id="buscar" class="form-inline my-2 my-lg-2">
 	<input type="search" name="busqueda" id="busqueda" placeholder="Ingrese el nombre del usuario" class="form-control mr-sm-2">
@@ -54,7 +54,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['id'])) {
 <?php
   if (isset($_SESSION['usuario']) && isset($_SESSION['id'])){
 
-     echo '<h4><span class="badge badge-primary" style="float: right; margin-bottom:5%;">'.$_SESSION["usuario"];'</span></h4>';
+     echo '<h4><span class="badge badge-primary" style="float: right; margin-bottom:10%;">'.$_SESSION["usuario"];'</span></h4>';
   }
  ?>
 
