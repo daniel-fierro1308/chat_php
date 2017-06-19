@@ -20,7 +20,7 @@ session_start();
                 	require_once("header/layout.php");
 				?>
             </header>
-            <div class="container centrarDiv">
+            <div class="container ">
 				<table class="table table-striped">
 				<thead>
             		<th>Usuarios</th>
@@ -64,13 +64,16 @@ session_start();
 						 if($id == $_SESSION['id']){
 							header('location:perfil.php');
 							//echo"<div class='alert alert-info'>No puedes agregarte a ti mismo..</div>";
-						} else{
+						}else if($numSolicitudes['solicitud'] == $_SESSION['id'] && $numSolicitudes['usuario'] == $id){
+								echo "<div class='container'><div class='alert- alert-success'>Su solicitud ya ha sido enviada</div></div>";
+							}  else{
 							$sql="insert into solicitudes (usuario,solicitud) values ($_SESSION[id],$id)";
 							$error="<div class='alert alert-danger'>Error al buscar usuarios</div>";
 							$solicitud=consulta($con,$sql,$error);			
 							if($solicitud){
-								 echo"<div class='alert- alert-success'>Su solicitud ha sido enviada</div>";
-							}else{
+								 echo"<div class='container'><div class='alert- alert-success'>Su solicitud ha sido enviada</div></div>";
+							}
+							else{
 								echo"<div class='alert alert-danger'>Error al enviar la soliciutud</div>";
 							}//$solicitud
 						}
