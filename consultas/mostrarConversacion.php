@@ -14,10 +14,8 @@
 		if($numero==0){
 			echo"error";
 		}else{
-			$sql="select *, usuarios.usuario as usuario, contacto as usuarioCont from mensajesChat inner join usuarios on usuarios.id=mensajesChat.usuario or usuarios.id=mensajeschat.contacto
-			 where (mensajesChat.usuario='".$idContacto."' and  mensajesChat.contacto='".$idUsuario."') or 
-			 (mensajesChat.usuario='".$idUsuario."' and mensajesChat.contacto='".$idContacto."') order by mensajesChat.id";
-
+			$sql="select *, usuarios.usuario as usuario from mensajeschat inner join usuarios on usuarios.id=mensajesChat.usuario
+			 where (mensajesChat.usuario='".$idContacto."' and  mensajesChat.contacto='".$idUsuario."') or (mensajesChat.usuario='".$idUsuario."' and mensajesChat.contacto='".$idContacto."') order by mensajesChat.id";
 			$error="<div class='alert alert-danger'>Error al seleccionar los mensajes</div>";
 			$mensajesUsuario=consulta($con,$sql,$error);
 			$noMensajesUsuario=mysqli_num_rows($mensajesUsuario);

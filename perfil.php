@@ -28,7 +28,8 @@
             }    
         ?>
     <div class="container">
-    <div class="container">
+
+    <div class="container" style="margin-top: 7%;">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-3" align="center">Mi Información</h1>
