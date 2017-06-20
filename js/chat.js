@@ -58,7 +58,7 @@ function mostrarMensajes(){
 	if(conexion.readyState==4){
 		mensajesAjax.innerHTML='';
 		if(conexion.responseText=='error'){
-			mensajesAjax.innerHTML='<div class="error">El contacto no existe</div>';	
+			mensajesAjax.innerHTML='<div class="alert alert-danger">El contacto no existe</div>';	
 		}else{
 			conversacion.innerHTML=conexion.responseText+'<span id="src"></span>';
 			var src=document.getElementById('src').scrollIntoView(true);//mandar el scroll hacia abajo

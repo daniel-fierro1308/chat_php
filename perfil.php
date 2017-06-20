@@ -33,7 +33,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-3" align="center">Mi Información</h1>
-                <p class="lead" align="center">Aquí encontraras tu Información personal, podras editarla si asi lo deseas o simplemente observarla</p>
+                <p class="lead" align="center">Aquí encontraras tu Información personal, la cual fue brindada al momento de registrarte</p>
             </div>
         </div>
         <form action="" method= "post">

@@ -24,6 +24,7 @@
 
             <div class="espacioUsuario centrarDiv borde-5 borderBox">
         		<?php
+					
 					if(isset($_POST['confirmarSolicitud'])){
 						$id=limpiar($con,$_POST['id']);
 						$fecha=date("Y/m/d H:i:s");
@@ -47,6 +48,15 @@
 							echo"<div class='alert alert-danger'>Contacto ya registrado</div>";
 						}
 					}//confimar solicitud
+					
+					else if(isset($_POST['ignorarSolicitud'])){
+								$id=limpiar($con,$_POST['id']);
+								$sql="delete from solicitudes where usuario=$id and solicitud=$_SESSION[id]";
+								$error="<div class='alert alert-danger'>Error al verificar el contacto</div>";
+								$contactos=consulta($con,$sql,$error);
+								echo"<div class='alert alert-info'>Solicitud eliminada con exito</div>";
+					} // eliminar solicitud
+
 					$sql="select * from contactos where usuario=$_SESSION[id] or contacto=$_SESSION[id]";
 					$error="<div class='alert alert-danger'>Error al seleccionar las solicitudes</div>";
 					$contactos=consulta($con,$sql,$error);
@@ -72,15 +82,18 @@
 					
 					<?php
 					if($numSolicitudes>0){
-						echo '<div class="divSolicitudes borde-5"><h3 class="centrarTexto">Estos usuarios te enviaron solicitud:</h3><br>';
+						echo '<div class="divSolicitudes borde-5"><h4 class="centrarTexto display-4">Estos usuarios te enviaron solicitud:</h3><br>';
 					}
 					while($solicitud=mysqli_fetch_assoc($solicitudes)){
 						echo  '<div class="divSolicitudes borde-5"><form action="'.$_SERVER['PHP_SELF'].'" method="post" name="formConfirmar" id="formConfirmar" class="formConfirmar borde-5 form-inline">
 						<input type="hidden" name="id" value="'.$solicitud['solicitudesUsuario'].'">
-						<div class=" alinear-horizontal">
+						<div class="alinear-horizontal">
 						 <div class="form-group">
-						<label class="usuario">'.$solicitud['usuario'], '</label>
+						<label class="centrarTexto usuario">'.$solicitud['usuario'], '</label>
+						<div>
 						<input type="submit" name="confirmarSolicitud" id="confirmarSolicitud" value="Confirmar" class="btn btn-secondary form-control botonFormConfirmar" role="button">
+						<input type="submit" name="ignorarSolicitud" id="ignorarSolicitud" value="Ignorar" class="btn btn-danger form-control botonFormConfirmar" role="button">
+						</div>
 						</div>
 						</div>
 						</form>

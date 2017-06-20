@@ -23,7 +23,14 @@
 				<!--<div class="contenedorTablaResultados centrarDiv">-->
 					<div class="container" align="center">
 						<h1>Lista de contactos</h1>
-                	
+                	<table class='table table-striped'>
+						<thead id='titulos'>
+							<th>Id</th>
+							<th>Usuario</th>
+							<th>Nombre de Usuario</th>
+							<th>Estado</th>
+							<th>Acción</th>
+						</thead>
                     	
 			<?php
 				require_once('funciones/funciones.php');
@@ -47,17 +54,8 @@
 						 } else{
 						 	$fondo= 'Desconectado';
 						 }
-						echo"
-						<table class='table table-striped'>
-						<thead id='titulos'>
-							<th>Id</th>
-							<th>Usuario</th>
-							<th>Nombre de Usuario</th>
-							<th>Estado</th>
-							<th>Acción</th>
-						</thead>
-						<td>$contacto1[usuarioId]</td> 
-						<td><a href='chat.php?id=$contacto1[usuarioId]'>$contacto1[usuario]</td> <td>$contacto1[usuarioNombre]</td> <td>$fondo</td><td><a id='elim1' href='eliminar.php?id=$contacto1[usuarioId]'>Eliminar</a></td><tr></table>";
+						echo"<td>$contacto1[usuarioId]</td> 
+						<td><a href='chat.php?id=$contacto1[usuarioId]'>$contacto1[usuario]</td> <td>$contacto1[usuarioNombre]</td> <td>$fondo</td><td><a id='elim1' href='eliminar.php?id=$contacto1[usuarioId]'>Eliminar</a></td><tr>";
 					}
 				}
 				
@@ -74,17 +72,8 @@
 						 } else{
 						 	$fondo= 'Desconectado';
 						 }
-						echo"
-						<table class='table table-striped'>
-						<thead id='titulos'>
-							<th>Id</th>
-							<th>Usuario</th>
-							<th>Nombre de Usuario</th>
-							<th>Estado</th>
-							<th>Acción</th>
-						</thead>
-						<td>$contacto2[usuarioId]</td> 
-						<td><a href='chat.php?id=$contacto2[usuarioId]'>$contacto2[usuario]</td> <td>$contacto2[usuarioNombre]</td> <td>$fondo</td><td><a id='elim1' href='eliminar.php?id=$contacto2[usuarioId]'>Eliminar</a></td></tr><tr></table>";
+						echo"<td>$contacto2[usuarioId]</td> 
+						<td><a href='chat.php?id=$contacto2[usuarioId]'>$contacto2[usuario]</td> <td>$contacto2[usuarioNombre]</td> <td>$fondo</td><td><a id='elim1' href='eliminar.php?id=$contacto2[usuarioId]'>Eliminar</a></td></tr><tr>";
 					}
 				}
 				$_SESSION['numContactos2']=$numContactos2;
@@ -93,6 +82,7 @@
 					echo"<div class='alert alert-info'>Aun no tienes contactos</div>";	
 				}
 			?>
+			</table>
 				</div>
         	<!--</div>-->
     </body>

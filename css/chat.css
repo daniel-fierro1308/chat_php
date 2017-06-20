@@ -115,7 +115,7 @@
 	margin: 2% 0 3% 0;
 }
 .formConfirmar{
-	width:23%;
+	width:30%;
 	background-color:#0275d8;
 	padding: 2%;
 	margin: 0 0 3% 5%;
@@ -128,8 +128,6 @@
 	width:30%;
 	margin-right:7%;
 }*/
-.botonFormConfirmar{
-}
 .actividad,.actividadContacto{
 	width:2%;
 	height:10px;
@@ -189,15 +187,16 @@
 }
 .divUsuario,.divMensaje{
 	width:10%;
-	background-color:#2F92FF;
+	background-color:#0275d8;
 	padding:1%;
 	margin-top:1%;
 	margin-left:1%;
+	color: #fff;
 }
 .divMensaje{
 	width:90%;
 	margin:3%;
-	background-color:#0DB2A5;
+	background-color:#3c763d;
 }
 .formChat{
 	width:90%;

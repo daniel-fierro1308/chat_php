@@ -12,6 +12,7 @@
 </body>
 </html>
 <?php
+date_default_timezone_set('America/Bogota');
 	session_start();
 	require_once('../funciones/funciones.php');
 	require_once('../funciones/conexion.php');
@@ -20,7 +21,7 @@
 		$idUsuario=$_SESSION['id'];
 		$idContacto=limpiar($con,$_POST['idContacto']);
 		$fecha=date("Y/m/d");
-		$hora=date("H:i:s");
+		$hora=date("H:i a");
 		if($mensaje!=''){
 			$sql="insert into mensajesChat (mensaje, usuario, contacto, fecha, hora) values ('$mensaje','$idUsuario','$idContacto','$fecha','$hora')";
 			$error="<div class='alert alert-danger'>Error al registrar el mensaje</div>";

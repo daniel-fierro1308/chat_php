@@ -37,7 +37,9 @@ session_start();
 					$numUsuarios=mysqli_num_rows($usuarios);
 					if($numUsuarios==0){
 						echo"<div class='alert alert-info'>No se encontraron resultados con su busqueda <strong>$busqueda</strong></div>";
-					}else{
+					}
+					
+					else{
 						while($usuario=mysqli_fetch_assoc($usuarios)){
 							$sql2="select * from contactos where (usuario='$_SESSION[id]' and contacto='$usuario[id]') or (usuario='$usuario[id]' and contacto='$_SESSION[id]')";
 							$error2="<div class='alert alert-danger'>Error al comprobar los contactos</div>";
@@ -60,18 +62,18 @@ session_start();
 						$sql="select * from solicitudes where id=$_SESSION[id] and solicitud=$id";
 						$error="<div class='alert alert-danger'>Error al comprobar el envio de solicitud</div>";
 						$solicitudes=consulta($con,$sql,$error);	
-						$numSolicitudes= mysqli_num_rows($solicitudes);
+						$numSolicitudes= mysqli_fetch_array($solicitudes);
 						 if($id == $_SESSION['id']){
 							header('location:perfil.php');
 							//echo"<div class='alert alert-info'>No puedes agregarte a ti mismo..</div>";
-						}else if($numSolicitudes['solicitud'] == $_SESSION['id'] && $numSolicitudes['usuario'] == $id){
+						}else if($numSolicitudes['solicitud'] ==  $id || $numSolicitudes['solicitud'] ==  $_SESSION['id'] || $numSolicitudes['id'] ==  $id || $numSolicitudes['id'] ==  $_SESSION['id']){
 								echo "<div class='container'><div class='alert- alert-info'>Su solicitud ya ha sido enviada</div></div>";
 							}  else{
 							$sql="insert into solicitudes (usuario,solicitud) values ($_SESSION[id],$id)";
 							$error="<div class='alert alert-danger'>Error al buscar usuarios</div>";
 							$solicitud=consulta($con,$sql,$error);			
 							if($solicitud){
-								 echo"<div class='container'><div class='alert- alert-success'>Su solicitud ha sido enviada</div></div>";
+								 echo"<div class='container'><div class='alert alert-success' style='margin-top: 10%'>Su solicitud ha sido enviada</div></div>";
 							}
 							else{
 								echo"<div class='alert alert-danger'>Error al enviar la soliciutud</div>";
