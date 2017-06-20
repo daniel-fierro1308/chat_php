@@ -15,7 +15,8 @@
     	<script src="js/estadoUsuario.js"></script>
     </head>
 	<body>
-		<div class="contenedorPrincipal">
+	<div class="container">
+		
             	<?php
                 	require_once("header/layout.php");
 					require_once('funciones/funciones.php');
@@ -51,8 +52,8 @@
 					$contactos=consulta($con,$sql,$error);
 					$numContactos=mysqli_num_rows($contactos);
 				?>
-                <div class="noContactos alinear-horizontal borde-5 borderBox">
-                	<a href='contactos.php'>Contactos Actualmente:<?php echo $numContactos;?></a>
+                <div class="noContactos alinear-horizontal borde-5 borderBox centrarTexto">
+                	<a href='contactos.php'>Contactos Actualmente: <?php echo $numContactos;?></a>
             	</div>
 				<div class="noSolicitudes alinear-horizontal borde-5 borderBox">
 				<?php
@@ -65,25 +66,33 @@
 					}else{
 						$fondo='';
 					}
-					echo '<div class="alinear-horizontal">Solicitudes:</div><div class="divSolicitudes centrarTexto alinear-horizontal '.$fondo.'">'.$numSolicitudes.'</div><br>';
+					echo '<div class="centrarTexto alinear-horizontal '.$fondo.'">Solicitudes: '.$numSolicitudes.'</div><br><br>';
+					?>
+					 </div><!--noSolicitudes-->
+					
+					<?php
 					if($numSolicitudes>0){
-						echo 'Estos usuarios te enviaron solicitud:<br>';
+						echo '<div class="divSolicitudes borde-5"><h3 class="centrarTexto">Estos usuarios te enviaron solicitud:</h3><br>';
 					}
 					while($solicitud=mysqli_fetch_assoc($solicitudes)){
-						echo  '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="formConfirmar" id="formConfirmar" class="formConfirmar borde-5">
+						echo  '<div class="divSolicitudes borde-5"><form action="'.$_SERVER['PHP_SELF'].'" method="post" name="formConfirmar" id="formConfirmar" class="formConfirmar borde-5 form-inline">
 						<input type="hidden" name="id" value="'.$solicitud['solicitudesUsuario'].'">
-						<div class="labelFormConfirmar  alinear-horizontal">
-						<label>'.$solicitud['usuario'],'</label>
+						<div class=" alinear-horizontal">
+						 <div class="form-group">
+						<label class="usuario">'.$solicitud['usuario'], '</label>
+						<input type="submit" name="confirmarSolicitud" id="confirmarSolicitud" value="Confirmar" class="btn btn-secondary form-control botonFormConfirmar" role="button">
 						</div>
-						<div class="botonFormConfirmar alinear-horizontal">
-						<input type="submit" name="confirmarSolicitud" id="confirmarSolicitud" value="Confirmar" class="btn btn-primary" role="button">
 						</div>
-						</form>';
+						</form>
+						</div>';
 					}
 				?>
-                </div><!--noSolicitudes-->
+				<div><br></div>
+				 <!--divsolicitudes -->
+               
             </div><!--espacioUsuario-->
         </div><!--contenedorPrincipal-->
+		</div> <!--container-->
 	</body>
 	<?php
 	}

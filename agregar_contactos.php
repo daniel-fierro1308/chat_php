@@ -14,13 +14,13 @@ session_start();
 		<script src="js/estadoUsuario.js"></script>
     </head>
 	<body>
-		<div class="container">
+		
         	<header>
             	<?php
                 	require_once("header/layout.php");
 				?>
             </header>
-            <div class="container ">
+            <div class="container">
 				<table class="table table-striped">
 				<thead>
             		<th>Usuarios</th>
@@ -65,7 +65,7 @@ session_start();
 							header('location:perfil.php');
 							//echo"<div class='alert alert-info'>No puedes agregarte a ti mismo..</div>";
 						}else if($numSolicitudes['solicitud'] == $_SESSION['id'] && $numSolicitudes['usuario'] == $id){
-								echo "<div class='container'><div class='alert- alert-success'>Su solicitud ya ha sido enviada</div></div>";
+								echo "<div class='container'><div class='alert- alert-info'>Su solicitud ya ha sido enviada</div></div>";
 							}  else{
 							$sql="insert into solicitudes (usuario,solicitud) values ($_SESSION[id],$id)";
 							$error="<div class='alert alert-danger'>Error al buscar usuarios</div>";
@@ -84,7 +84,7 @@ session_start();
 		 ?>
          	</table><!---tabla-->
          </div><!--contenedorTablaReultados-->
- 		</div><!--contenedorPrincipal-->
+ 	<!--contenedorPrincipal-->
 	</body>
 </html>
 <?php

@@ -92,36 +92,43 @@
 	background-color:#8FBCE0;
 }*/
 .espacioUsuario{
-	width:80%;
-	margin-top:5%;
-	border:solid 2px blue;
+	width:96%;
+	margin-top:10%;
+	border:solid 2px #0275d8;
 	font-size:20pt;
 	padding:2%;
 }
 .noContactos,.noSolicitudes{
-	width:35%;
+	width:40%;
 	padding:2%;
 	background-color:#9CCCF4;
 }
 .noSolicitudes{
-	width:60%;
+	width:40%;
+	height: 8%;
+	margin: -8% 0 0 0;
+	float: right;
+	background-color:#9CCCF4;
 }
 .divSolicitudes{
-	width:7%;
-	border-radius:50%;
+	background-color:#9CCCF4;
+	margin: 2% 0 3% 0;
 }
 .formConfirmar{
-	width:50%;
-	background-color:#E3925B;
-	padding:1%;
-	margin-top:2%;
+	width:23%;
+	background-color:#0275d8;
+	padding: 2%;
+	margin: 0 0 3% 5%;
 }
-.labelFormConfirmar{
-	width:50%;
-	margin-right:7%;
+.usuario {
+	color: #fff;
+	margin-right: 0.2%;
 }
-.botonFormConfirmar{
+/*.labelFormConfirmar{
 	width:30%;
+	margin-right:7%;
+}*/
+.botonFormConfirmar{
 }
 .actividad,.actividadContacto{
 	width:2%;
